@@ -2,6 +2,9 @@ package de.tum.in.ase.eist;
 
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
+import java.util.regex.Pattern;
+
 @Service
 public class QueryProcessor {
 
@@ -12,9 +15,10 @@ public class QueryProcessor {
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.contains("name")) {
-           return "B)";
+            return "B)";
+
         } else { // TODO extend the programm here
-            return "";
+            return Math.min(1000, Math.max(0,SecureRandom.getInstance("NativePRNG").nextInt()));
         }
     }
 }
